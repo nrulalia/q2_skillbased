@@ -1,0 +1,21 @@
+import socket
+
+def main():
+ s = socket.soket(socket.AF_INET, socket.SOCK_STREAM)
+ S.connect(("192.168.10.30", 8080))
+ 
+ fahrenheit = input("Enter tempature in Fahrenheit: ")
+ s.send(fahrenheit.encode())
+
+ celsius = s.recv(1024).decode()
+ print("Tempature in Celsius: ", celsius)
+
+main()
+
+
+
+
+
+
+
+

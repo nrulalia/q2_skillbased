@@ -1,0 +1,27 @@
+import socket
+
+def fahrenheit_to_celsius(fahrenheit):
+ celsius = (fahrenheit - 32) * (5/9)
+ return celsius
+
+def main()
+
+ serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+ serversocket.bind(("192.168.10.30",8080))
+ serversocket.listen(1)
+ print("Waiting for client....")
+
+ while True:
+  clientsocket,addr = serversocket.accept()
+  print("A connection from %s" str(addr))
+
+  fahrenheit = clientsocket.recv(1024).decode()
+  celsius = fahrenheit_to_celsius(float(fahrenheit))
+  celsius = round(celsius,2)
+  celsius = str(celsius)
+  clientsocket.send(celsius.encode())
+
+main()
+
+
+
